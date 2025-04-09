@@ -1,11 +1,17 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "./config";
 import { middleware } from "./middleware";
+import { JWT_SECRET } from "@repo/backend-common/config";
 
 const app = express();
 
 app.use(express.json());
+
+app.get("/", (req, res) => {
+    res.json({
+        message: "home page"
+    });
+});
 
 app.post("/signup", (req, res) => {
     // db call
