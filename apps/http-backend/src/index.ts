@@ -46,6 +46,13 @@ app.post("/signin", (req, res) => {
 });
 
 app.post("/room", middleware, (req, res) => {
+    const data = CreateRoomSchema.safeParse(req.body);
+    if (!data.success) {
+        res.json({
+            message: "Incorrect input"
+        });
+        return;
+    }
 
     // db call
     res.json({
