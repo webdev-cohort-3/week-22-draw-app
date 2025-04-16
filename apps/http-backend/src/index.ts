@@ -35,7 +35,7 @@ app.post("/signup", async (req, res) => {
         });
     } catch(e) {
         res.status(409).json({
-            message: "User already exists with this username"
+            message: "User already exists with this email"
         });
     }
 
